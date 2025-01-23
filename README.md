@@ -1,4 +1,4 @@
-# Three.js Component: MyComponent
+# Three.js Component: FPS
 
 A simple component that show FPS of Three.js scene.
 
