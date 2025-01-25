@@ -13,5 +13,8 @@ export default {
       file: 'build/three-fps.module.js',
       indent: '\t'
      }
-    ]
-   };
+    ],
+    watch: {
+        include: 'src/**'
+    },
+};

@@ -10,9 +10,9 @@
     </style>
 </head>
 <body>
-    <script src="../build/three-fps.js"></script>
     <script type="module">
-        import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three/build/three.module.js';
+        import FPS from '../build/three-fps.module.js';
 
         // create three.js scene
         const scene = new THREE.Scene();
@@ -33,7 +33,19 @@
         const fps = new FPS();
         document.body.appendChild(fps.getDOMElement());
 
-        // loop
+        // Handle window resize
+        window.addEventListener('resize', onWindowResize, false);
+
+        function onWindowResize() {
+            // Update camera aspect ratio
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            // Update renderer size
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
 
